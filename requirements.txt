@@ -1,0 +1,4 @@
+grpcio==1.84.1
+grpcio-tools==1.84.1
+liboqs-python==0.16.0.1
+cryptography==50.0.2
