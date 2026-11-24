@@ -6,7 +6,7 @@ cost of post-quantum (ML-DSA) bearer tokens carried in gRPC metadata.
 - **E2**: bytes on the wire and latency of bearer tokens in gRPC metadata, on plain loopback
 - **E2b**: E2 repeated over a bandwidth-limited link (100 Mbit/s, `tc netem`)
 
-All results in `experiments/e2_metadata/results/` were produced on 7 Nov 2026 on the
+All results in `results/` were produced on 7 Nov 2026 on the
 machine described below. Every command here is run from the repository root.
 
 ## Repository layout
@@ -14,7 +14,7 @@ machine described below. Every command here is run from the repository root.
 | Path | Contents |
 | --- | --- |
 | `experiments/e2_metadata/` | E2 and E2b scripts |
-| `experiments/e2_metadata/results/` | Raw data, summaries, reports, netem setup and packet capture |
+| `results/` | E2 and E2b results: raw data, summaries, reports, netem setup and packet capture |
 | `experiments/common/cpu_setup.sh` | Fixes the CPU frequency for benchmarking, or restores the defaults (needs sudo) |
 | `experiments/common/environment.txt` | Test machine record |
 | `protobufs/` | `security_service.proto` and the generated `_pb2` / `_pb2_grpc` modules used by the E2 client and server |
@@ -141,7 +141,7 @@ Packet capture (with the netem rule still on):
 
 ```bash
 bash experiments/e2_metadata/e2b_capture.sh           # short S3000/S3500/S4000 trial -> /tmp/e2b_seg.pcap
-cp /tmp/e2b_seg.pcap experiments/e2_metadata/results/e2b_segments.pcap
+cp /tmp/e2b_seg.pcap results/e2b_segments.pcap
 python experiments/e2_metadata/e2b_capture_gaps.py    # -> results/e2b_capture_gaps.csv
 ```
 
@@ -156,7 +156,7 @@ python experiments/e2_metadata/e2b_compare.py
 python experiments/e2_metadata/e2b_capture_gaps.py
 ```
 
-## Result files
+## Result files (`results/`)
 
 | File | Contents |
 | --- | --- |

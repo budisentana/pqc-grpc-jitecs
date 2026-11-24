@@ -9,7 +9,7 @@ import csv, statistics as st, subprocess, sys
 from collections import defaultdict
 from pathlib import Path
 
-R = Path(__file__).resolve().parent / "results"
+R = Path(__file__).resolve().parents[2] / "results"
 pcap = sys.argv[1] if len(sys.argv) > 1 else str(R / "e2b_segments.pcap")
 out = subprocess.run(["tcpdump", "-r", pcap, "-nn", "-tt", "tcp port 50060"],
                      capture_output=True, text=True, check=True).stdout

@@ -7,7 +7,7 @@
 #   sudo bash experiments/common/cpu_setup.sh restore
 # Writes results/e2b_* files only; the E2 (loopback) files are never touched.
 set -euo pipefail
-E=experiments/e2_metadata; R=$E/results
+E=experiments/e2_metadata; R=results
 tc qdisc show dev lo | grep -q netem || { echo "netem rule not active: run e2b_netem.sh on first"; exit 1; }
 { echo "E2b network condition"; date -Is; uname -r; tc qdisc show dev lo; tc filter show dev lo; } > $R/e2b_netem_setup.txt
 for i in 1 2 3 4 5; do

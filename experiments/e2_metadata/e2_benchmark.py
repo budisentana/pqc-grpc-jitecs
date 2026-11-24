@@ -15,7 +15,7 @@ For every scenario, in a fresh TCP connection each time:
 One launch = one run (as in E1/E1b); run it 5 times.
 The E2 server (e2_server.py) is started and stopped automatically.
 
-Output (experiments/e2_metadata/results/):
+Output (results/ in the repository root):
   e2_bytes.csv             one row per call of the byte pass
   e2_latency.csv           one row per measured call
   e2_run_environment.csv   CPU settings, versions and token sizes per run
@@ -41,7 +41,7 @@ PROJECT_DIR = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(PROJECT_DIR))
 
 E2_DIR = PROJECT_DIR / "experiments" / "e2_metadata"
-RESULTS_DIR = E2_DIR / "results"
+RESULTS_DIR = PROJECT_DIR / "results"
 BYTES_FILE = RESULTS_DIR / "e2_bytes.csv"
 LATENCY_FILE = RESULTS_DIR / "e2_latency.csv"
 ENV_FILE = RESULTS_DIR / "e2_run_environment.csv"

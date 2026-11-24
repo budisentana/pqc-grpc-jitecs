@@ -2,7 +2,7 @@
 # E2b packet capture: short trial of S3000, S3500 and S4000 over the netem link,
 # capturing TCP port 50060 on lo (first 128 bytes of each packet).
 # Run from the repo root with the venv active and the E2b tc rule in place.
-# Output: /tmp/e2b_seg.pcap (copy it to experiments/e2_metadata/results/).
+# Output: /tmp/e2b_seg.pcap (copy it to results/ in the repository root).
 set -euo pipefail
 sudo -v
 (sudo timeout 90 tcpdump -i lo -nn -s 128 -w /tmp/e2b_seg.pcap 'tcp port 50060' 2>/dev/null &)

@@ -6,7 +6,7 @@ import csv, statistics as st
 from collections import defaultdict
 from pathlib import Path
 
-R = Path(__file__).resolve().parent / "results"
+R = Path(__file__).resolve().parents[2] / "results"
 
 def load(name):
     pooled, runs, size, part = defaultdict(list), defaultdict(lambda: defaultdict(list)), {}, {}

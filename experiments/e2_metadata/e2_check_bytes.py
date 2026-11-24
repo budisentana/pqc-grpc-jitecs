@@ -2,14 +2,15 @@
 
 For each column, counts the scenario/call pairs whose value is not
 identical in all runs, and lists which call numbers are affected.
-Output: experiments/e2_metadata/results/e2_byte_check.txt
+Output: results/e2_byte_check.txt (repository root)
 """
 import csv, collections
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
-BYTES_FILE = HERE / 'results' / 'e2_bytes.csv'
-OUT_FILE = HERE / 'results' / 'e2_byte_check.txt'
+RESULTS = HERE.parents[1] / 'results'
+BYTES_FILE = RESULTS / 'e2_bytes.csv'
+OUT_FILE = RESULTS / 'e2_byte_check.txt'
 COLUMNS = ('header_bytes', 'header_frames', 'data_bytes', 'c2s_bytes')
 
 d = collections.defaultdict(lambda: collections.defaultdict(set))

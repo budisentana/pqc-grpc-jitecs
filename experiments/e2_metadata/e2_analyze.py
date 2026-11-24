@@ -10,7 +10,7 @@ Usage (from the project folder):
   python experiments/e2_metadata/e2_analyze.py
 
 Writes e2_bytes_summary.csv, e2_latency_summary.csv and e2_report.txt
-in experiments/e2_metadata/results/.
+in results/ (repository root).
 """
 
 import csv
@@ -19,7 +19,7 @@ import statistics
 from collections import defaultdict
 from pathlib import Path
 
-RESULTS = Path(__file__).resolve().parent / "results"
+RESULTS = Path(__file__).resolve().parents[2] / "results"
 T975 = {1: 12.706, 2: 4.303, 3: 3.182, 4: 2.776, 5: 2.571, 6: 2.447, 7: 2.365, 8: 2.306, 9: 2.262}
 PART_A = ["none", "ES256", "EdDSA", "ML-DSA-44", "ML-DSA-65", "ML-DSA-87"]
 HPACK_TABLE = 4096
